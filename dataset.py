@@ -13,6 +13,7 @@ class dataSet(object):
 
     def load(self):
         f = io.open(self.datafile,"rb")
+        # L for windows; I for linux/unix
         self.n = struct.unpack("L",f.read(4))[0]
         veclen = struct.unpack("L",f.read(4))[0]
         self.mat = zeros((self.n,veclen))
