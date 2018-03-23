@@ -35,8 +35,8 @@ class IMGProcess(object):
         # resize
         r = Image.new("L",self.size,"white")
         offset = (
-            (self.size[0]-c.size[0])/2,
-            (self.size[1]-c.size[1])/2
+            int((self.size[0]-c.size[0])/2),
+            int((self.size[1]-c.size[1])/2)
             )
         r.paste(c,offset)
         r = np.array(r.convert("L"))

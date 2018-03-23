@@ -3,6 +3,7 @@ Hand writing recognition
 """
 
 from __future__ import print_function
+from future.builtins import input
 import sys
 import knn
 from dataset import *
@@ -36,11 +37,6 @@ def recogImg(fn):
     return recog(vec, ts), vec
 
 if __name__ == "__main__":
-
-    try:
-        input = raw_input
-    except NameError:
-        pass
 
     if len(sys.argv) == 1:
         print("Invalid command")

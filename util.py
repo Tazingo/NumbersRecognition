@@ -18,7 +18,7 @@ def splitNumber (num):
     return lst[::-1]
 
 def printVec(vec,n):
-	for i in range(len(vec)/n):
+	for i in range(int(len(vec)/n)):
 		p = []
 		for j in range(n):
 			p.append(str(int(vec[i*n+j])))
