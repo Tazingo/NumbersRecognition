@@ -1,6 +1,7 @@
 from numpy import *
 from os import listdir
 from os.path import isfile
+import os
 from util import *
 import struct
 import io
@@ -10,10 +11,7 @@ class dataSet(object):
     mat = []
     labels = []
     datafile = ""
-
-    def __init__(self):
-
-        self.charCode = "L" if os.name == "nt" else "I"
+    charCode = "L" if os.name == "nt" else "I"
 
     def load(self):
         f = io.open(self.datafile,"rb")
