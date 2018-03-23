@@ -11,11 +11,16 @@ class dataSet(object):
     labels = []
     datafile = ""
 
+    def __init__(self):
+
+        self.charCode = "L" if os.name == "nt" else "I"
+
     def load(self):
         f = io.open(self.datafile,"rb")
         # L for windows; I for linux/unix
-        self.n = struct.unpack("L",f.read(4))[0]
-        veclen = struct.unpack("L",f.read(4))[0]
+
+        self.n = struct.unpack(self.charCode,f.read(4))[0]
+        veclen = struct.unpack(self.charCode,f.read(4))[0]
         self.mat = zeros((self.n,veclen))
         for i in range(self.n):
             n = struct.unpack("H",f.read(2))[0]
@@ -27,8 +32,8 @@ class dataSet(object):
 
     def save(self):
         f = open(self.datafile,"wb")
-        f.write(struct.pack("L",self.n))
-        f.write(struct.pack("L",len(self.mat[0])))
+        f.write(struct.pack(self.charCode,self.n))
+        f.write(struct.pack(self.charCode,len(self.mat[0])))
         for i in range(self.n):
             f.write(struct.pack("H",self.labels[i]))
             for j in self.mat[i]:
