@@ -1,14 +1,16 @@
+from __future__ import print_function
 from PIL import Image
 from os.path import isfile
 import numpy as np
+import sys
 
 class IMGProcess(object):
 
     def __init__(self,fn,size):
         self.fn = fn
         if not isfile(fn):
-            print "File not exist"
-            exit(0)
+            print("File not exist",file=sys.stderr)
+            exit(1)
         self.img = Image.open(fn)
         self.size = size
 

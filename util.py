@@ -1,3 +1,4 @@
+from __future__ import print_function
 from numpy import *
 
 def img2vector(filename):
@@ -21,4 +22,4 @@ def printVec(vec,n):
 		p = []
 		for j in range(n):
 			p.append(str(int(vec[i*n+j])))
-		print "".join(p)
+		print("".join(p))
